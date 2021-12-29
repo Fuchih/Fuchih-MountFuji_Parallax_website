@@ -8,15 +8,40 @@ serif;
   box-sizing: border-box;
 }
 
-html,
-body {
-  overflow-x      : hidden;
-  margin          : 0;
-  padding         : 0;
-  // background-color: #f4a5a9;
+ul {
+  list-style: none;
 }
 
-.container {
+a {
+  text-decoration: none;
+}
+
+html,
+body {
+  overflow-x : hidden;
+  margin     : 0;
+  padding    : 0;
+  font-family: $fontFamily;
+  height     : 5000px;
+}
+
+nav {
+  position: fixed;
+  z-index : 999;
+
+  .nav {
+    display: flex;
+
+    li {
+      margin: 10px 30px;
+      font-size: 3vw;
+    }
+  }
+}
+
+
+
+.container-top {
   position: relative;
   height  : 80vh;
 
@@ -35,8 +60,6 @@ body {
     background: linear-gradient(to top, $primaryColor, transparent);
   }
 }
-
-// ----------Parallax start----------
 
 #mount {
   z-index  : 1;
@@ -70,24 +93,50 @@ body {
   right  : -250px;
 }
 
-#bridge {
-  position  : fixed;
-  z-index   : 3;
-  bottom    : -200px;
-  left      : 50%;
-  transform : translateX(-50%);
-  width     : 100vw;
+#sakura-left {
+  z-index: 3;
+  bottom : -200px;
+  width  : 1000px;
 }
 
-// ----------Parallax end----------
+#sakura-right {
+  z-index: 3;
+  top    : -200px;
+  right  : 0;
+  width  : 1200px;
+}
 
-article {
+#bridge {
+  position : fixed;
+  z-index  : 3;
+  bottom   : -200px;
+  left     : 50%;
+  transform: translateX(-50%);
+  width    : 100vw;
+
+}
+
+.container-mid {
   z-index         : 2;
   position        : relative;
   margin-top      : -70px;
   padding         : 13vw;
   background-color: #f4a5a9;
   color           : #fff;
+
+  >img {
+    position: absolute;
+    width   : 1000px;
+  }
+
+  @at-root #left-tree {
+    left: -100px;
+  }
+
+  @at-root #right-tree {
+    top  : 150px;
+    right: -100px;
+  }
 
   &::before {
     content   : "";
@@ -101,18 +150,21 @@ article {
 
   >h2 {
     text-align: center;
-
-    font: {
-      size  : 3.5em;
-      family: $fontFamily;
-    }
+    font-size : 3.5em;
   }
 
   >p {
-    font: {
-      size  : 1em;
-      family: $fontFamily;
-    }
+    font-size: 1em;
+  }
+
+  @at-root #bush-right {
+    bottom: 40px;
+    right : 0;
+  }
+
+  @at-root #bush-left {
+    bottom: 60px !important;
+    left  : 0;
   }
 }
 
